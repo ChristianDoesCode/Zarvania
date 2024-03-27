@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Image Files">
+      <UniqueIdentifier>{15562077-9766-43fa-af92-1a1455700802}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -26,5 +29,10 @@
     <ClInclude Include="Player.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="mariahead.png">
+      <Filter>Resource Files\Image Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

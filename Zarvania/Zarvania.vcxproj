@@ -156,6 +156,9 @@
   <ItemGroup>
     <ClInclude Include="Player.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="mariahead.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
