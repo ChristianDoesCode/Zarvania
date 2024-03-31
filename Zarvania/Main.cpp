@@ -8,7 +8,7 @@
 
 const bool isFullScreen = false;
 
-mac::Player maria;
+mac::Player player;
 mac::Background gameBackground;
 
 int main()
@@ -21,8 +21,11 @@ int main()
 	//make a texture for background
 	sf::Texture backgroundTexture;
 
+	sf::Clock timer;
+	sf::Time tickRate;
+
 	//set the textures image
-	if (!playerTexture.loadFromFile("mariahead.png"))
+	if (!playerTexture.loadFromFile("amongus.png"))
 	{
 		std::cout << "There was an error loading the texture!";
 	}
@@ -32,7 +35,8 @@ int main()
 	}
 
 	//set player texture
-	maria.setTexture(playerTexture);
+	player.setTexture(playerTexture);
+	player.setOrigin(player.getLocalBounds().width / 2, 0);
 
 	//set background texture
 	gameBackground.setTexture(backgroundTexture);
@@ -52,19 +56,25 @@ int main()
 					{
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 						{
-							maria.move(0, -10);
+							sf::Vector2f movement(0, -10);
+
+							tickRate = timer.restart();
+
+							player.move(movement * ((float)tickRate.asMilliseconds() / 1000));
 						}
 						else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 						{
-							maria.move(0, 10);
+							player.move(0, 10);
 						}
 						if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 						{
-							maria.move(-10, 0);
+							player.setScale(-1.0f, 1.0f);
+							player.move(-10, 0);
 						}
 						else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 						{
-							maria.move(10, 0);
+							player.setScale(1.0f, 1.0f);
+							player.move(10, 0);
 						}
 					}
 				}
@@ -74,7 +84,7 @@ int main()
 
 			window.draw(gameBackground);
 
-			window.draw(maria);
+			window.draw(player);
 
 			window.display();
 		}
